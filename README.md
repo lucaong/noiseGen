@@ -3,6 +3,16 @@ NoiseGen
 
 A simple jQuery plugin to generate background noise dynamically (with support for a fallback background image for browsers that don't support the canvas API).
 
+
+Install
+=======
+
+As with any jQuery plugin you just need to:
+
+* Make sure to import the jQuery library in your project.
+* Place noiseGen.0.1.1.js somewhere within your project and import it in your HTML code.
+
+
 Usage
 =====
 
@@ -38,4 +48,12 @@ Options currently supported and their default values are:
 * `opacity` [default: `0.2`]: the background opacity. Float value ranging from 0 to 1.
 * `width` [default: `32`]: the generated background image width in pixels.
 * `height` [default: `32`]: the generated background image height in pixels.
-* `depth` [default: `60`]: the depth of the background noise. Range: 1 to 255.
+* `grainDimension` [default: `1`]: the dimension of noise grains in pixels. It can be a number for square grains, or an object specifying `grainDimension.width` and `grainDimension.height` for rectangular grains
+* `fromColor` [default: `"000000"`]: starting point of the color gradient from which each grain's color will be randomly taken
+* `toColor` [default: `"606060"`]: ending point of the color gradient from which each grain's color will be randomly taken
+* `independentChannels` [default: `false`]: if true, each RGB channel will vary independently and fromColor and endColor will represent boundaries rather than endpoints for a gradient
+
+Moreover, two additional options affect the shape of the statistical distribution from which the color of each noise grain is generated:
+
+* `n` [default: 1]: the distribution is obtained as a sum of `n` uniform distributions ranging from 0 to 1. Therefore, if `n = 1` the resulting distribution is uniform, and if `n` takes higher values the distribution approaches a normal distribution.
+* `s` [default: 1]: each random value extracted from the distribution is then elevated to the `s` power. Thus, if `s < 1` the resulting distribution will be skewed to the right, while if `s > 1` it will be skewed to the left.
