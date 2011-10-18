@@ -75,17 +75,18 @@
       while (x < canvas.width) {
         while (y < canvas.height) {
           var fromRGB = utils.hexToRGB(options.fromColor),
-          toRGB = utils.hexToRGB(options.toColor);
+          toRGB = utils.hexToRGB(options.toColor),
+          r, g, b;
           if (!options.independentChannels) {
             // RGB channels are not independent
-            var rand = utils.parametricRandom(options.n, options.s),
-            r = utils.mapToRange(rand, fromRGB.red, toRGB.red),
-            g = utils.mapToRange(rand, fromRGB.green, toRGB.green),
+            var rand = utils.parametricRandom(options.n, options.s);
+            r = utils.mapToRange(rand, fromRGB.red, toRGB.red);
+            g = utils.mapToRange(rand, fromRGB.green, toRGB.green);
             b = utils.mapToRange(rand, fromRGB.blue, toRGB.blue);
           } else {
             // RGB channels are independent
-            r = utils.mapToRange(utils.parametricRandom(options.n, options.s), fromRGB.red, toRGB.red),
-            g = utils.mapToRange(utils.parametricRandom(options.n, options.s), fromRGB.green, toRGB.green),
+            r = utils.mapToRange(utils.parametricRandom(options.n, options.s), fromRGB.red, toRGB.red);
+            g = utils.mapToRange(utils.parametricRandom(options.n, options.s), fromRGB.green, toRGB.green);
             b = utils.mapToRange(utils.parametricRandom(options.n, options.s), fromRGB.blue, toRGB.blue);
           }
           ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + options.opacity + ")";
