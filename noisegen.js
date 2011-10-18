@@ -1,5 +1,5 @@
 (function($) {
-  return $.fn.noiseGen = function(options) {
+  $.fn.noiseGen = function(options) {
     var defaultOptions = {
       width: 32,
       height: 32,
