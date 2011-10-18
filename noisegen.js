@@ -7,7 +7,7 @@
       fallbackImage: false,
       depth: 60
     },
-    canvas = document.createElement("canvas"),
+    canvas = document.createElement("canvas");
     options = $.extend(defaultOptions, options);
     if (!canvas.getContext || !canvas.getContext("2d")) {
       // Canvas not supported :(
@@ -26,13 +26,13 @@
       canvas.width = options.width;
       canvas.height = options.height;
       while (x < canvas.width) {
-        y = 0;
         while (y < canvas.height) {
-          number = Math.floor(Math.random() * options.depth);
-          ctx.fillStyle = "rgba(" + number + "," + number + "," + number + "," + options.opacity + ")";
+          var r = Math.floor(Math.random() * options.depth);
+          ctx.fillStyle = "rgba(" + r + "," + r + "," + r + "," + options.opacity + ")";
           ctx.fillRect(x, y, 1, 1);
           y++;
         }
+        y = 0;
         x++;
       }
       return this.css("background-image", "url(" + canvas.toDataURL("image/png") + ")");
