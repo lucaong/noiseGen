@@ -3,15 +3,36 @@
   <head>
     <title>NoiseGen Example</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
-    <script type="text/javascript" src="../noisegen.js"></script>
+    <script type="text/javascript" src="../noisegen-0.1.1.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $("body").noiseGen({ opacity: 0.2, fallbackImage: "bkgnd.png", width: 64, height: 64 });
+        $("body").noiseGen({ opacity: 0.2, fallbackImage: "bkgnd.png", width: 72, height: 72 });
+        $("#test1").noiseGen({ opacity: 1, grainDimension: 1, fromColor: "0088c0", toColor: "10a9cf", independentChannel: true, s: 2, n: 3, width: 100, height: 100 });
+        $("#test2").noiseGen({ opacity: 1, grainDimension: { width: 5, height: 1 }, fromColor: "874500", toColor: "995400", s: 0.3, n: 3, width: 100, height: 50 });
       });
     </script>
+    <style type="text/css">
+      div {
+        width: 400px;
+        height: 400px;
+        padding: 50px;
+        margin: 10px;
+        float: left;
+      }
+    </style>
   </head>
   <body>
     <h1>NoiseGen Example</h1>
     <p>The background noise in this page is dynamically generated through JavaScript.</p>
+    <div id="test1">
+      <strong>Options:</strong>
+      <br>
+      opacity: 1, grainDimension: 1, fromColor: "0088c0", toColor: "10a9cf", independentChannel: true, s: 0.3, n: 3, width: 100, height: 100
+    </div>
+    <div id="test2">
+      <strong>Options:</strong>
+      <br>
+      opacity: 1, grainDimension: { width: 5, height: 1 }, fromColor: "874500", toColor: "995400", s: 0.3, n: 3, width: 100, height: 50
+    </div>
   </body>
 </html>
