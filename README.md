@@ -13,7 +13,6 @@ Just call `$(".foo").noiseGen()`. You can also pass an object specifying some co
 <html>
   <head>
     <title>NoiseGen Example</title>
-    <link rel="stylesheet" type="text/css" href="../jqcloud/jqcloud.css" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
     <script type="text/javascript" src="../noisegen.js"></script>
     <script type="text/javascript">
