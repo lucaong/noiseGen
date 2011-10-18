@@ -23,7 +23,7 @@ Just call `$(".foo").noiseGen()`. You can also pass an object specifying some co
   </head>
   <body>
     <h1>NoiseGen Example</h1>
-    <p>The background noise in this page is dynamically generate through JavaScript.</p>
+    <p>The background noise in this page is dynamically generated through JavaScript.</p>
   </body>
 </html>
 ```
@@ -34,8 +34,8 @@ Options
 
 Options currently supported and their default values are:
 
-* fallbackImage [default: false]: either false or a string containing the URL of an image to be used as background when the browser doesn't support the Canvas element.
-* opacity [default: 0.2]: the background opacity. Float value ranging from 0 to 1.
-* width [default: 32]: the generated background image width in pixels.
-* height [default: 32]: the generated background image height in pixels.
-* depth [default: 60]: the depth of the background noise. Range: 1 to 255.
+* `fallbackImage` [default: `false`]: either false or a string containing the URL of an image to be used as background when the browser doesn't support the Canvas element.
+* `opacity` [default: `0.2`]: the background opacity. Float value ranging from 0 to 1.
+* `width` [default: `32`]: the generated background image width in pixels.
+* `height` [default: `32`]: the generated background image height in pixels.
+* `depth` [default: `60`]: the depth of the background noise. Range: 1 to 255.
