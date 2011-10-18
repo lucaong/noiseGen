@@ -7,32 +7,62 @@
     <script type="text/javascript">
       $(document).ready(function() {
         $("body").noiseGen({ opacity: 0.2, fallbackImage: "bkgnd.png", width: 72, height: 72 });
-        $("#test1").noiseGen({ opacity: 1, grainDimension: 1, fromColor: "0088c0", toColor: "10a9cf", independentChannel: true, s: 2, n: 3, width: 100, height: 100 });
-        $("#test2").noiseGen({ opacity: 1, grainDimension: { width: 5, height: 1 }, fromColor: "874500", toColor: "995400", s: 0.3, n: 3, width: 100, height: 50 });
+        $("#test1").noiseGen({ opacity: 1, fallbackImage: "blue.png", grainDimension: 1, fromColor: "0088c0", toColor: "10a9cf", independentChannel: true, s: 2, n: 3, width: 100, height: 100 });
+        $("#test2").noiseGen({ opacity: 1, fallbackImage: "brown.png", grainDimension: { width: 10, height: 1 }, fromColor: "874500", toColor: "995400", s: 0.3, n: 3, width: 300, height: 100 });
       });
     </script>
     <style type="text/css">
-      div {
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      div#container {
+        width: 960px;
+        padding: 20px;
+      }
+      div#test1, div#test2 {
         width: 400px;
         height: 400px;
-        padding: 50px;
-        margin: 10px;
+        padding: 30px;
+        margin: 0 10px 0 0;
         float: left;
       }
     </style>
   </head>
   <body>
-    <h1>NoiseGen Example</h1>
-    <p>The background noise in this page is dynamically generated through JavaScript.</p>
-    <div id="test1">
-      <strong>Options:</strong>
-      <br>
-      opacity: 1, grainDimension: 1, fromColor: "0088c0", toColor: "10a9cf", independentChannel: true, s: 0.3, n: 3, width: 100, height: 100
-    </div>
-    <div id="test2">
-      <strong>Options:</strong>
-      <br>
-      opacity: 1, grainDimension: { width: 5, height: 1 }, fromColor: "874500", toColor: "995400", s: 0.3, n: 3, width: 100, height: 50
+    <div id="container">
+      <h1>NoiseGen Example</h1>
+      <p>The background noise in this page is dynamically generated through JavaScript (unless your browser doesn't support the canvas element, in which case a fallback image is used).</p>
+      <div id="test1">
+        <strong>Options:</strong>
+        <br>
+        <ul>
+          <li>opacity: 1</li>
+          <li>fallbackImage: "blue.png"</li>
+          <li>grainDimension: 1</li>
+          <li>fromColor: "0088c0"</li>
+          <li>toColor: "10a9cf"</li>
+          <li>independentChannel: true</li>
+          <li>s: 0.3</li>
+          <li>n: 3</li>
+          <li>width: 100</li>
+          <li>height: 100</li>
+        </ul>
+      </div>
+      <div id="test2">
+        <strong>Options:</strong>
+        <br>
+        <ul>
+          <li>opacity: 1</li>
+          <li>fallbackImage: "brown.png"</li>
+          <li>grainDimension: { width: 10, height: 1 }</li>
+          <li>fromColor: "874500"</li>
+          <li>toColor: "995400"</li>
+          <li>s: 0.3</li>
+          <li>n: 3</li>
+          <li>width: 300</li>
+          <li>height: 100</li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>

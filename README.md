@@ -3,6 +3,8 @@ NoiseGen
 
 A simple jQuery plugin to generate background noise dynamically (with support for a fallback background image for browsers that don't support the canvas API).
 
+You can see a (quite ugly) [demo here](http://www.lucaongaro.eu/demos/noisegen/).
+
 
 Install
 =======
@@ -24,7 +26,7 @@ Just call `$(".foo").noiseGen()`. You can also pass an object specifying some co
   <head>
     <title>NoiseGen Example</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
-    <script type="text/javascript" src="../noisegen.js"></script>
+    <script type="text/javascript" src="../noisegen-0.1.1.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $("body").noiseGen({ opacity: 0.1, fallbackImage: "bkgnd.png", width: 64, height: 64 });
