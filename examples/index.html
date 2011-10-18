@@ -7,8 +7,8 @@
     <script type="text/javascript">
       $(document).ready(function() {
         $("body").noiseGen({ opacity: 0.2, fallbackImage: "bkgnd.png", width: 72, height: 72 });
-        $("#test1").noiseGen({ opacity: 1, fallbackImage: "blue.png", grainDimension: 1, fromColor: "0088c0", toColor: "10a9cf", independentChannel: true, s: 2, n: 3, width: 100, height: 100 });
-        $("#test2").noiseGen({ opacity: 1, fallbackImage: "brown.png", grainDimension: { width: 10, height: 1 }, fromColor: "874500", toColor: "995400", s: 0.3, n: 3, width: 300, height: 100 });
+        $("#test1").noiseGen({ opacity: 1, fallbackImage: "blue.png", grainDimension: 1, fromColor: "0088c0", toColor: "10a9cf", independentChannels: true, s: 2, n: 3, width: 100, height: 100 });
+        $("#test2").noiseGen({ opacity: 0.8, fallbackImage: "grey.png", grainDimension: { width: 40, height: 1 }, fromColor: "777777", toColor: "aaaaaa", s: 0.15, n: 4, width: 400, height: 100 });
       });
     </script>
     <style type="text/css">
@@ -41,7 +41,7 @@
           <li>grainDimension: 1</li>
           <li>fromColor: "0088c0"</li>
           <li>toColor: "10a9cf"</li>
-          <li>independentChannel: true</li>
+          <li>independentChannels: true</li>
           <li>s: 0.3</li>
           <li>n: 3</li>
           <li>width: 100</li>
@@ -53,13 +53,13 @@
         <br>
         <ul>
           <li>opacity: 1</li>
-          <li>fallbackImage: "brown.png"</li>
-          <li>grainDimension: { width: 10, height: 1 }</li>
-          <li>fromColor: "874500"</li>
-          <li>toColor: "995400"</li>
-          <li>s: 0.3</li>
-          <li>n: 3</li>
-          <li>width: 300</li>
+          <li>fallbackImage: "grey.png"</li>
+          <li>grainDimension: { width: 40, height: 1 }</li>
+          <li>fromColor: "777777"</li>
+          <li>toColor: "aaaaaa"</li>
+          <li>s: 0.15</li>
+          <li>n: 4</li>
+          <li>width: 400</li>
           <li>height: 100</li>
         </ul>
       </div>
