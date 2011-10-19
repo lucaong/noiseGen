@@ -18,7 +18,7 @@ As with any jQuery plugin you just need to:
 Usage
 =====
 
-Just call `$(".foo").noiseGen()`. You can also pass an object specifying some configuration options (read more on this later). An example is worth a thousand words:
+Just call `$(".foo").noiseGen()` to add a noisy background to elements of class `foo`. You can also pass an object specifying some configuration options (read more on this later). An example is worth a thousand words:
 
 ```html
 <!DOCTYPE html>
