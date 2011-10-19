@@ -12,7 +12,7 @@ Install
 As with any jQuery plugin you just need to:
 
 * Make sure to import the jQuery library in your project.
-* Place noiseGen.0.1.1.js somewhere within your project and import it in your HTML code.
+* Place the file `noisegen.0.1.1.js` somewhere within your project and import it in your HTML code.
 
 
 Usage
