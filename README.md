@@ -64,8 +64,8 @@ An example setting all options with custom values is:
 
 ```javascript
 $("body").noiseGen({
-  opacity: 0.7,
   fallbackImage: "bkgnd.png",
+  opacity: 0.7,
   width: 64,
   height: 64,
   grainDimension: {
