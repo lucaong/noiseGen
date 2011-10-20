@@ -1,7 +1,7 @@
 /*!
  * noiseGen Plugin for jQuery
  *
- * Version 0.1.1
+ * Version 0.1.2
  *
  * Copyright 2011, Luca Ongaro
  * Licensed under the MIT license.
@@ -12,19 +12,31 @@
   "use strict";
   $.fn.noiseGen = function(options) {
     var defaultOptions = {
-      width: 32,
-      height: 32,
+      width: 50,
+      height: 50,
       opacity: 0.2,
       fallbackImage: false,
       grainDimension: 1,
       fromColor: "000000",
       toColor: "606060",
       independentChannels: false,
-      s: 1,
-      n: 1
+      distribution: "bell",
+      bias: 0
     },
     canvas = document.createElement("canvas");
     options = $.extend(defaultOptions, options);
+    
+    // Parse options.distribution and turn it into an integer
+    if (typeof options.distribution == "string") {
+      switch(options.distribution) {
+          case "uniform": options.distribution = 1; break;
+          case "triangular": options.distribution = 2; break;
+          case "bell": options.distribution = 5; break;
+          default: options.distribution = 5;
+      }
+    } else {
+      options.distribution = Math.abs(parseInt(options.distribution));
+    }
     
     // Detect canvas support
     if (!canvas.getContext || !canvas.getContext("2d")) {
@@ -44,12 +56,12 @@
       // Utility functions
       utils = {
         // Generate random numbers from a parametric distribution
-        parametricRandom: function(n, s) {
+        parametricRandom: function(n, bias) {
           var i, r = 0;
           for (i = 0; i < n; i++) {
             r += Math.random();
           }
-          return Math.pow(r/i, s);
+          return Math.pow(r/i, Math.pow(1.2, bias));
         },
         // Translate hexadecimal values into three separate RGB channels
         hexToRGB: function(hex) {
@@ -61,8 +73,8 @@
           };
         },
         // Map a value ranging from 0 to 1 into another range
-        mapToRange: function(n, from, to) {
-          return Math.floor(n * (to - from)) + from;
+        mapToRange: function(x, from, to) {
+          return Math.floor(x * (to - from)) + from;
         }
       };
       canvas.width = options.width;
@@ -79,15 +91,15 @@
           r, g, b;
           if (!options.independentChannels) {
             // RGB channels are not independent
-            var rand = utils.parametricRandom(options.n, options.s);
+            var rand = utils.parametricRandom(options.distribution, options.bias);
             r = utils.mapToRange(rand, fromRGB.red, toRGB.red);
             g = utils.mapToRange(rand, fromRGB.green, toRGB.green);
             b = utils.mapToRange(rand, fromRGB.blue, toRGB.blue);
           } else {
             // RGB channels are independent
-            r = utils.mapToRange(utils.parametricRandom(options.n, options.s), fromRGB.red, toRGB.red);
-            g = utils.mapToRange(utils.parametricRandom(options.n, options.s), fromRGB.green, toRGB.green);
-            b = utils.mapToRange(utils.parametricRandom(options.n, options.s), fromRGB.blue, toRGB.blue);
+            r = utils.mapToRange(utils.parametricRandom(options.distribution, options.bias), fromRGB.red, toRGB.red);
+            g = utils.mapToRange(utils.parametricRandom(options.distribution, options.bias), fromRGB.green, toRGB.green);
+            b = utils.mapToRange(utils.parametricRandom(options.distribution, options.bias), fromRGB.blue, toRGB.blue);
           }
           ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + options.opacity + ")";
           ctx.fillRect(x, y, options.grainDimension.width, options.grainDimension.height);

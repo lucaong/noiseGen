@@ -1,67 +1,212 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NoiseGen Example</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
-    <script type="text/javascript" src="../noisegen-0.1.1.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $("body").noiseGen({ opacity: 0.2, fallbackImage: "bkgnd.png", width: 72, height: 72 });
-        $("#test1").noiseGen({ opacity: 1, fallbackImage: "blue.png", grainDimension: 1, fromColor: "0088c0", toColor: "10a9cf", independentChannels: true, s: 2, n: 3, width: 100, height: 100 });
-        $("#test2").noiseGen({ opacity: 0.8, fallbackImage: "grey.png", grainDimension: { width: 40, height: 1 }, fromColor: "777777", toColor: "aaaaaa", s: 0.15, n: 4, width: 400, height: 100 });
-      });
-    </script>
-    <style type="text/css">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>NoiseGen Demo</title>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.6.4.js'></script>
+    <script type="text/javascript" src="../noisegen-0.1.2.js"></script>
+  
+    <style type='text/css'>
       body {
-        font-family: Helvetica, Arial, sans-serif;
+        padding: 0;
+        margin: 0;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        color: #333;
+        font-size: 16px;
       }
-      div#container {
-        width: 960px;
-        padding: 20px;
+      #background {
+        height: 230px;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
       }
-      div#test1, div#test2 {
-        width: 400px;
-        height: 400px;
-        padding: 30px;
-        margin: 0 10px 0 0;
+      header {
+        position: relative;
+        width: 800px;
+        height: 70px;
+        margin: 0 auto;
+      }
+      h1 {
+        line-height: 70px;
+        font-size: 35px;
+        font-weight: 500;
+        color: #555;
+        text-shadow: 0 1px 1px rgba(255,255,255,0.9);
+      }
+      #main {
+        width: 720px;
+        margin: 0 auto 10px auto;
+        padding: 20px 40px 10px 40px;
+        background: #fff;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1);
+        -mox-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.1);
+      }
+      .box {
+        width: 200px;
+        height: 200px;
         float: left;
+        margin: 10px;
+        padding: 10px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+        -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+      }
+      .grey-box {
+        width: 200px;
+        min-height: 220px;
+        float: left;
+        margin: 10px;
+        padding: 10px;
+        background: #f0f0f0;
+      }
+      pre {
+        font-family: Courier new, courier, monospace;
+        font-size: 11px;
+        line-height: 13px;
+      }
+      #footer {
+        clear: both;
+        text-align: center;
+        padding: 20px 0 0 0;
+        margin: 0;
+        font-size: 12px;
+        color: #777;
+      }
+      a {
+        color: #0099ff;
       }
     </style>
+  
+    <script type='text/javascript'>
+      //<![CDATA[ 
+      $(document).ready(function() {
+        $("body").noiseGen({
+          opacity: 1,
+          width: 80,
+          height: 80,
+          grainDimension: 1,
+          fromColor: "bbc3cb",
+          toColor: "d6dde3",
+          independentChannels: false,
+          distribution: "bell",
+          bias: 1,
+          fallbackImage: "bkgnd.png"
+        });
+        
+        $("#box1").noiseGen({
+          opacity: 1,
+          width: 60,
+          height: 60,
+          grainDimension: 1,
+          bias: 5,
+          distribution: "bell",
+          fromColor: "0088c0",
+          toColor: "10a9cf",
+          independentChannels: true,
+          fallbackImage: "blue.png"
+        });
+        
+        $("#box2").noiseGen({
+          opacity: 1,
+          width: 120,
+          height: 80,
+          grainDimension: {
+            width: 60,
+            height: 1
+          },
+          fromColor: "777777",
+          toColor: "BBBBBB",
+          distribution: 10,
+          bias: -9,
+          fallbackImage: "grey.png"
+        });
+        
+        $("#box3").noiseGen({
+          opacity: 1,
+          width: 100,
+          height: 70,
+          grainDimension: {
+            width: 10,
+            height: 1
+          },
+          fromColor: "472B00",
+          toColor: "573700",
+          distribution: "bell",
+          bias: 8,
+          fallbackImage: "brown.png"
+        });
+      });
+      //]]> 
+    </script>
   </head>
   <body>
-    <div id="container">
-      <h1>NoiseGen Example</h1>
-      <p>The background noise in this page is dynamically generated through JavaScript (unless your browser doesn't support the canvas element, in which case a fallback image is used).</p>
-      <div id="test1">
-        <strong>Options:</strong>
-        <br>
-        <ul>
-          <li>opacity: 1</li>
-          <li>fallbackImage: "blue.png"</li>
-          <li>grainDimension: 1</li>
-          <li>fromColor: "0088c0"</li>
-          <li>toColor: "10a9cf"</li>
-          <li>independentChannels: true</li>
-          <li>s: 0.3</li>
-          <li>n: 3</li>
-          <li>width: 100</li>
-          <li>height: 100</li>
-        </ul>
+    <div id="background"></div>
+    <header>
+      <h1>NoiseGen Demo</h1>
+    </header>
+    <div id="main">
+      <p>
+          Background noise and patterns in this page have been dynamically generated in your browser through <strong>JavaScript</strong>. That's unless your browser doesn't support the <em>canvas</em> element, in which case a fallback image is used. The <strong>jQuery</strong> plugin <a href="https://github.com/DukeLeNoir/noiseGen">noiseGen</a> takes care of all that.
+      </p>
+      <div class="box" id="box1"></div>
+      <div class="box" id="box2"></div>
+      <div class="box" id="box3"></div>
+      <div class="grey-box">
+        &uarr;
+        <pre>$("#box1").noiseGen({
+  opacity: 1,
+  width: 60,
+  height: 60,
+  grainDimension: 1,
+  bias: 5,
+  distribution: "bell",
+  fromColor: "0088c0",
+  toColor: "10a9cf",
+  independentChannels: true,
+  fallbackImage: "blue.png"
+});</pre>
       </div>
-      <div id="test2">
-        <strong>Options:</strong>
-        <br>
-        <ul>
-          <li>opacity: 1</li>
-          <li>fallbackImage: "grey.png"</li>
-          <li>grainDimension: { width: 40, height: 1 }</li>
-          <li>fromColor: "777777"</li>
-          <li>toColor: "aaaaaa"</li>
-          <li>s: 0.15</li>
-          <li>n: 4</li>
-          <li>width: 400</li>
-          <li>height: 100</li>
-        </ul>
+      <div class="grey-box">
+        &uarr;
+        <pre>$("#box2").noiseGen({
+  opacity: 1,
+  width: 120,
+  height: 80,
+  grainDimension: {
+    width: 60,
+    height: 1
+  },
+  fromColor: "777777",
+  toColor: "BBBBBB",
+  distribution: 10,
+  bias: -9,
+  fallbackImage: "grey.png"
+});</pre>
+      </div>
+      <div class="grey-box">
+        &uarr;
+        <pre>$("#box3").noiseGen({
+  opacity: 1,
+  width: 100,
+  height: 70,
+  grainDimension: {
+    width: 10,
+    height: 1
+  },
+  fromColor: "472B00",
+  toColor: "573700",
+  distribution: "bell",
+  bias: 8,
+  fallbackImage: "brown.png"
+});</pre>
+      </div>
+      <div id="footer">
+        <strong>NoiseGen</strong> is a project by <a href="http://www.lucaongaro.eu/">Luca Ongaro</a>
       </div>
     </div>
   </body>

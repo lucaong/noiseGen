@@ -12,7 +12,7 @@ Install
 As with any jQuery plugin you just need to:
 
 * Make sure to import the jQuery library in your project.
-* Place the file `noisegen.0.1.1.js` somewhere within your project and import it in your HTML code.
+* Place the file `noisegen.0.1.2.js` somewhere within your project and import it in your HTML code.
 
 
 Usage
@@ -26,7 +26,7 @@ Just call `$(".foo").noiseGen()` to add a noisy background to elements of class 
   <head>
     <title>NoiseGen Example</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
-    <script type="text/javascript" src="../noisegen-0.1.1.js"></script>
+    <script type="text/javascript" src="path/to/noisegen-0.1.2.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $("body").noiseGen({ opacity: 0.1, fallbackImage: "bkgnd.png", width: 64, height: 64 });
