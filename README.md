@@ -47,8 +47,8 @@ Options currently supported and their default values are:
 
 Moreover, two additional options specify the shape of the statistical distribution from which the color of each noise grain is generated:
 
-* `distribution` (default: "bell"): the shape of the distribution. It can be `"uniform"`, `"triangular"` or `"bell"`. Alternatively, it can be a positive integer indicating the number of uniform distributions to be added up (obtaining a Bates distribution).
-* `bias` (default: 1): if `bias > 0` the resulting distribution will be biased in favor of `fromColor`, while if `bias < 1` it will biased in favor of `toColor`. In other words, this parameter affects the skewness of the noise distribution.
+* `distribution` (default: `"bell"`): the shape of the distribution. It can be `"uniform"`, `"triangular"` or `"bell"`. Alternatively, it can be a positive integer indicating the number of uniform distributions to be added up (obtaining a Bates distribution).
+* `bias` (default: `0`): if `bias > 0` the resulting distribution will be biased in favor of `fromColor`, while if `bias < 1` it will biased in favor of `toColor`. In other words, this parameter affects the skewness of the noise distribution.
 
 An example setting all options with custom values is:
 
