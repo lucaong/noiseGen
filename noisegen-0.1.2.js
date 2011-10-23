@@ -129,7 +129,9 @@
         dataURL = canvas.toDataURL("image/png");
         // Cache value if localStorage is supported
         if (!!options.useCache && utils.hasLocalStorage) {
-          localStorage.setItem(window.JSON.stringify(options), dataURL);
+          try {
+            localStorage.setItem(window.JSON.stringify(options), dataURL);
+          } catch(e) {}
         }
       }
       return this.css("background-image", "url(" + dataURL + ")");
