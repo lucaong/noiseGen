@@ -43,6 +43,7 @@ Options currently supported and their default values are:
 * `fromColor` (default: `"000000"`): starting point of the color gradient from which each grain's color will be randomly taken
 * `toColor` (default: `"606060"`): ending point of the color gradient from which each grain's color will be randomly taken
 * `independentChannels` (default: `false`): if true, each RGB channel will vary independently, and fromColor and toColor will represent boundaries rather than endpoints for the gradient.
+* `useCache` (default: `false`): if true, it uses HTML5 localStorage (if available) to locally cache the generated background image so it isn't generated at each request.
 
 Moreover, two additional options specify the shape of the statistical distribution from which the color of each noise grain is generated:
 
@@ -65,6 +66,7 @@ $("body").noiseGen({
   toColor: "10AADD",
   independentChannels: true,
   distribution: "uniform",
-  bias: 5
+  bias: 5,
+  useCache: true
 });
 ```
