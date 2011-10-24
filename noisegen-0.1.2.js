@@ -28,7 +28,7 @@
     options = $.extend(defaultOptions, options);
     
     // Parse options.distribution and turn it into an integer
-    if (typeof options.distribution == "string") {
+    if (typeof options.distribution === "string") {
       switch(options.distribution) {
         case "uniform": options.distribution = 1; break;
         case "triangular": options.distribution = 2; break;
@@ -36,7 +36,7 @@
         default: options.distribution = 5;
       }
     } else {
-      options.distribution = Math.abs(parseInt(options.distribution));
+      options.distribution = Math.abs(parseInt(options.distribution, 10));
     }
     
     // Detect canvas support
