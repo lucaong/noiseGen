@@ -14,7 +14,7 @@
     var defaultOptions = {
       width: 50,
       height: 50,
-      opacity: 0.2,
+      opacity: {from: 0.1, to: 0.5},      
       fallbackImage: false,
       grainDimension: 1,
       fromColor: "000000",
@@ -119,7 +119,9 @@
               g = utils.mapToRange(utils.parametricRandom(options.distribution, options.bias), fromRGB.green, toRGB.green);
               b = utils.mapToRange(utils.parametricRandom(options.distribution, options.bias), fromRGB.blue, toRGB.blue);
             }
-            ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + options.opacity + ")";
+            var fillOpacity = (typeof options.opacity === "number")? options.opacity : options.opacity.from + 
+              (Math.random() * (options.opacity.to - options.opacity.from));
+            ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + fillOpacity + ")";
             ctx.fillRect(x, y, options.grainDimension.width, options.grainDimension.height);
             y += options.grainDimension.height;
           }
