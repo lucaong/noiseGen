@@ -36,7 +36,7 @@ Options
 Options currently supported and their default values are:
 
 * `fallbackImage` (default: `false`): either false or a string containing the URL of an image to be used as background when the browser doesn't support the Canvas element.
-* `opacity` (default: `0.2`): the background opacity. Float value ranging from 0 to 1.
+* `opacity` (default: `0.2`): the background opacity. Float value ranging from 0 to 1, or alternatively an object specifying `from` and `to` property for random opacity values.
 * `width` (default: `50`): the generated background image width in pixels.
 * `height` (default: `50`): the generated background image height in pixels.
 * `grainDimension` (default: `1`): the dimension of noise grains in pixels. It can be a number for square grains, or an object specifying `grainDimension.width` and `grainDimension.height` for rectangular grains
@@ -55,7 +55,10 @@ An example setting all options with custom values is:
 ```javascript
 $("body").noiseGen({
   fallbackImage: "bkgnd.png",
-  opacity: 0.7,
+  opacity: {
+    from: 0.2,
+    to: 0.5
+  },
   width: 64,
   height: 64,
   grainDimension: {
