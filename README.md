@@ -70,3 +70,9 @@ $("body").noiseGen({
   useCache: true
 });
 ```
+
+
+Changelog
+=========
+
+**v0.1.3** - Add support for random opacity (kudos to [OpenGrid](https://github.com/OpenGrid))

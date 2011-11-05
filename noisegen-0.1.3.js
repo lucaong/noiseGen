@@ -1,7 +1,7 @@
 /*!
  * noiseGen Plugin for jQuery
  *
- * Version 0.1.2
+ * Version 0.1.3
  *
  * Copyright 2011, Luca Ongaro
  * Licensed under the MIT license.
