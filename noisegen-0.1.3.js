@@ -134,9 +134,15 @@
           try {
             localStorage.setItem(window.JSON.stringify(options), dataURL);
           } catch(e) {}
+                }
+            }
+            var old_backgroundImage = this.css("background-image");
+            if (old_backgroundImage != "") {
+            return this.css("background-image", "url(" + dataURL + ")" + "," + old_backgroundImage);
+            }
+            else {
+            return this.css("background-image", "url(" + dataURL + ")");
+            }
         }
-      }
-      return this.css("background-image", "url(" + dataURL + ")");
-    }
-  };
+    };
 })(jQuery);
