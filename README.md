@@ -12,7 +12,7 @@ Install
 As with most jQuery plugin, you just need to:
 
 * Make sure to import the jQuery library in your project.
-* Place the file `noisegen.0.1.3.js` somewhere within your project and import it in your HTML code.
+* Place the file `noisegen.0.1.4.js` somewhere within your project and import it in your HTML code.
 
 
 Usage
@@ -79,4 +79,5 @@ $("body").noiseGen({
 Changelog
 =========
 
+**v0.1.4** - Add support for multiple layered background-image (thanks to [mdarens](https://github.com/mdarens))
 **v0.1.3** - Add support for random opacity (kudos to [OpenGrid](https://github.com/OpenGrid))

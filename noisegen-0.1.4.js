@@ -1,7 +1,7 @@
 /*!
  * noiseGen Plugin for jQuery
  *
- * Version 0.1.3
+ * Version 0.1.4
  *
  * Copyright 2011, Luca Ongaro
  * Licensed under the MIT license.
@@ -134,15 +134,9 @@
           try {
             localStorage.setItem(window.JSON.stringify(options), dataURL);
           } catch(e) {}
-                }
-            }
-            var old_backgroundImage = this.css("background-image");
-            if (old_backgroundImage != "") {
-            return this.css("background-image", "url(" + dataURL + ")" + "," + old_backgroundImage);
-            }
-            else {
-            return this.css("background-image", "url(" + dataURL + ")");
-            }
         }
-    };
+      }
+      return this.css("background-image", "url(" + dataURL + ")" + "," + this.css("background-image") || "none");
+    }
+  };
 })(jQuery);
