@@ -79,5 +79,5 @@ $("body").noiseGen({
 Changelog
 =========
 
-**v0.1.4** - Add support for multiple layered background-image (thanks to [mdarens](https://github.com/mdarens))
-**v0.1.3** - Add support for random opacity (kudos to [OpenGrid](https://github.com/OpenGrid))
+* **v0.1.4** - Add support for multiple layered background-image (thanks to [mdarens](https://github.com/mdarens))
+* **v0.1.3** - Add support for random opacity (kudos to [OpenGrid](https://github.com/OpenGrid))
