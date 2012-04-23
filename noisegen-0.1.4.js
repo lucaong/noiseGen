@@ -136,13 +136,13 @@
           } catch(e) {}
         }
       }
-      return this.css("background-image", "url(" + dataURL + ")" + "," + this.css("background-image") || "none");
-      return this.css("background-position", "0 0" + "," + this.css("background-position") || "none");
-      return this.css("background-repeat", "repeat" + "," + this.css("background-repeat") || "none");
-      return this.css("background-attachment", "inherit" + "," + this.css("background-attachment") || "none");
-      return this.css("background-size", "auto" + "," + this.css("background-size") || "none");
-      return this.css("background-clip", "border-box" + "," + this.css("background-clip") || "none");
-      return this.css("background-origin", "padding-box" + "," + this.css("background-origin") || "none");
+      return this.css("background-image", "url(" + dataURL + ")" + "," + this.css("background-image") || "none"),
+             this.css("background-position", "0 0" + "," + this.css("background-position") || "none"),
+             this.css("background-repeat", "repeat" + "," + this.css("background-repeat") || "none"),
+             this.css("background-attachment", "inherit" + "," + this.css("background-attachment") || "none"),
+             this.css("background-size", "auto" + "," + this.css("background-size") || "none"),
+             this.css("background-clip", "border-box" + "," + this.css("background-clip") || "none"),
+             this.css("background-origin", "padding-box" + "," + this.css("background-origin") || "none");
     }
   };
 })(jQuery);
