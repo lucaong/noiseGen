@@ -8,7 +8,7 @@
  *
  */
 
-(function($) {
+;(function($) {
   "use strict";
   $.fn.noiseGen = function(options) {
     var defaultOptions = {
@@ -24,7 +24,7 @@
       bias: 0,
       useCache: false
     },
-    canvas = document.createElement("canvas");
+    canvas = document.createElement("canvas"),
     options = $.extend(defaultOptions, options);
     
     // Parse options.distribution and turn it into an integer
