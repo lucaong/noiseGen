@@ -8,9 +8,27 @@
  *
  */
 
-(function($) {
+;(function($) {
   "use strict";
-  $.fn.noiseGen = function(options) {
+  
+  $.fn.newCssRule = function(cssSelector, styleString){
+    var $newStyleSheet = $('<style rel="stylesheet" type="text/css" />').appendTo('head');
+    $newStyleSheet.html(cssSelector +' {'+ styleString +'}');
+    return $newStyleSheet;
+  }
+  
+  $.fn.noiseGen = function() {
+    
+    if (typeof arguments[0] === "string"){
+      // if the first argument is a string, let's generate a new CSS rule using the string as a selector
+      var cssSelector = arguments[0],
+        options = arguments[1];
+    } else {
+      // otherwise we'll use inline styles
+      var cssSelector = false,
+        options = arguments[0];
+    }
+    
     var defaultOptions = {
       width: 50,
       height: 50,
@@ -24,7 +42,7 @@
       bias: 0,
       useCache: false
     },
-    canvas = document.createElement("canvas");
+    canvas = document.createElement("canvas"),
     options = $.extend(defaultOptions, options);
     
     // Parse options.distribution and turn it into an integer
@@ -136,13 +154,25 @@
           } catch(e) {}
         }
       }
-                return this.css("background-position", "0 0" + "," + this.css("background-position") || "none"),
-                       this.css("background-repeat", "repeat" + "," + this.css("background-repeat") || "none"),
-                       this.css("background-attachment", "inherit" + "," + this.css("background-attachment") || "none"),
-                       this.css("background-size", "auto" + "," + this.css("background-size") || "none"),
-                       this.css("background-clip", "border-box" + "," + this.css("background-clip") || "none"),
-                       this.css("background-origin", "padding-box" + "," + this.css("background-origin") || "none"),
-                       this.css("background-image", "url(" + dataURL + ")" + "," + this.css("background-image") || "none");
+      
+      if (cssSelector) {
+      
+      	// If user has provided a CSS selector, we'll create a new CSS rule for this selector
+      	var styleString = 'background-repeat: repeat; background-image: url("' + dataURL + '");';
+	    $.fn.newCssRule(cssSelector, styleString);
+	    
+      } else {
+      
+      	// otherwise, use default inline style method
+        return this.css("background-position", "0 0" + "," + this.css("background-position") || "none"),
+               this.css("background-repeat", "repeat" + "," + this.css("background-repeat") || "none"),
+               this.css("background-attachment", "inherit" + "," + this.css("background-attachment") || "none"),
+               this.css("background-size", "auto" + "," + this.css("background-size") || "none"),
+               this.css("background-clip", "border-box" + "," + this.css("background-clip") || "none"),
+               this.css("background-origin", "padding-box" + "," + this.css("background-origin") || "none"),
+               this.css("background-image", "url(" + dataURL + ")" + "," + this.css("background-image") || "none");
+	    
+      }
     }
   };
 })(jQuery);
